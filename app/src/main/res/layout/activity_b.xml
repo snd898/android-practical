@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ActivityB"
+    android:background="@color/red">
+
+    <TextView
+        android:id="@+id/vNumberOfInstance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_alignParentTop="true"
+        android:textAlignment="center"
+        android:textSize="50sp"/>
+    <Button
+        android:id="@+id/vSingleTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Single Top"
+        android:layout_above="@id/vSingleInstance"/>
+
+    <Button
+        android:id="@+id/vSingleInstance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Single Instance"
+        android:layout_above="@id/vStandard"/>
+    <Button
+        android:id="@+id/vStandard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Standard"
+        android:layout_above="@id/vButton"/>
+    <Button
+        android:id="@+id/vButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity C"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

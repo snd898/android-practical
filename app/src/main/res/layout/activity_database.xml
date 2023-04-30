@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="database_demo.DatabaseActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vUserList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/vInsertUser"/>
+    <Button
+        android:id="@+id/vInsertUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/vDeleteUser"
+        android:text="insert"/>
+
+    <Button
+        android:id="@+id/vDeleteUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/vLine"
+        android:text="delete"/>
+
+    <LinearLayout
+        android:id="@+id/vLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/vUpdateUser">
+        <EditText
+            android:id="@+id/vName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Name"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            app:layout_constraintTop_toBottomOf="@id/vDeleteUser"
+            android:layout_weight="1"
+            />
+        <EditText
+            android:id="@+id/vAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter age"
+            android:inputType="number"
+            android:layout_weight="1"
+            app:layout_constraintTop_toBottomOf="@id/vDeleteUser"
+            />
+        <EditText
+            android:id="@+id/vUserId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter user Id"
+            android:layout_weight="1"
+            app:layout_constraintTop_toBottomOf="@id/vDeleteUser"
+            />
+    </LinearLayout>
+    <Button
+        android:id="@+id/vUpdateUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="update"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

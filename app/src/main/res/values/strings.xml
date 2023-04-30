@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ActivityProcess</string>
+    <string name="create_new">Create new</string>
+    <string name="open">Open</string>
+    <string name="activity_and_lifecycle">Activity And Lifecycle</string>
+</resources>

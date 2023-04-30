@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.customviews">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CustomViews">
+        <activity
+            android:name=".my_locations.MyLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name="my_services.MyServicesActivity"
+            android:exported="false" />
+        <activity
+            android:name="content_providers.dictionery_demo.DictionaryActivity"
+            android:exported="false" />
+        <activity
+            android:name="database_demo.DatabaseActivity"
+            android:exported="true" />
+        <activity
+            android:name="notification_demo.NewNotificationActivity"
+            android:exported="true" />
+        <activity
+            android:name="content_providers.ContentProviderActivity"
+            android:exported="false" />
+        <activity
+            android:name="dialogs.DailogActivity"
+            android:exported="true" />
+        <activity
+            android:name="notification_demo.NotificationActivity"
+            android:exported="true" />
+        <activity
+            android:name="activity_and_lifecycle.SampleActivity"
+            android:exported="false" />
+        <activity
+            android:name="activity_and_lifecycle.ActivityAndLifecycle"
+            android:exported="true" />
+        <activity
+            android:name=".broadcast_recivers.activities.DemoActivityForBroadcast"
+            android:exported="true" />
+        <activity
+            android:name=".broadcast_recivers.activities.BroadcastReceiverActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.customviews.intents.IntentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CameraActiviity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ActivityD"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ActivityC"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ActivityB"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ActivityA"
+            android:exported="false"
+            android:launchMode="standard" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="my_services.HelloService" />
+
+        <receiver android:name=".broadcast_recivers.activities.airplane_mode.AirplaneModeReceiver" />
+    </application>
+
+</manifest>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="activity_and_lifecycle.ActivityAndLifecycle">
+
+    <Button
+        android:id="@+id/vResetLifecycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        app:layout_constraintEnd_toStartOf="@id/vShow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+        android:id="@+id/vShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show"
+        app:layout_constraintEnd_toEndOf="@id/vNewActivity"
+        app:layout_constraintStart_toEndOf="@id/vResetLifecycle"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+        android:id="@+id/vNewActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vShow"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+        android:id="@+id/vNewActAndReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Activity And Reset Lifecycle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vShow"/>
+    <TextView
+        android:id="@+id/vTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/vNewActAndReset"/>
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/vNewActAndReset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
