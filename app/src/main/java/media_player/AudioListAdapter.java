@@ -21,6 +21,8 @@ public class AudioListAdapter extends RecyclerView.Adapter<AudioListAdapter.AVHo
 
     List<AudioData> audioDataList;
     IPlayAudio iPlayAudio;
+    boolean isPlaying = false;
+    long previousAudio = 0;
     public AudioListAdapter(List<AudioData> audioDataList, IPlayAudio iPlayAudio) {
         this.audioDataList = audioDataList;
         this.iPlayAudio = iPlayAudio;
@@ -38,14 +40,23 @@ public class AudioListAdapter extends RecyclerView.Adapter<AudioListAdapter.AVHo
         holder.vPlayAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iPlayAudio.playAudio(audioDataList.get(position).id, audioDataList.get(position).name);
+                if (isPlaying && previousAudio == audioDataList.get(position).id) {
+                    iPlayAudio.pauseAudio(audioDataList.get(position).id, holder.vPlayAudio);
+                } else {
+                    if (previousAudio!=0 && previousAudio!=audioDataList.get(position).id) {
+                        iPlayAudio.pauseAudio(previousAudio, holder.vPlayAudio);
+                    }
+                    iPlayAudio.playAudio(audioDataList.get(position).id, audioDataList.get(position).name, holder.vPlayAudio);
+                }
+                previousAudio = audioDataList.get(position).id;
+                isPlaying = !isPlaying;
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return audioDataList.size();
     }
 
     class AVHolder extends RecyclerView.ViewHolder{

@@ -9,6 +9,8 @@ import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 import com.customviews.R;
 
@@ -16,46 +18,23 @@ import java.io.IOException;
 
 public class VideoPlayerActivity extends AppCompatActivity {
 
+    VideoView vVideoView;
+    Uri uri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
+        vVideoView = findViewById(R.id.vVideoView);
+        uri = Uri.parse("android.resource://"+getPackageName()+"/raw/video_sample");
+        //Creating MediaController
+        MediaController mediaController= new MediaController(this);
+        mediaController.setAnchorView(vVideoView);
+        //specify the location of media file
 
-        //        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sample);
-//        mediaPlayer.start(); // no need to call prepare(); create() does that for you
-
-//        ContentResolver contentResolver = getContentResolver();
-//        Uri uri = android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-//        Cursor cursor = contentResolver.query(uri, null, null, null, null);
-//        if (cursor == null) {
-//            // query failed, handle error.
-//        } else if (!cursor.moveToFirst()) {
-//            // no media on the device
-//        } else {
-//            int titleColumn = cursor.getColumnIndex(android.provider.MediaStore.Audio.Media.TITLE);
-//            int idColumn = cursor.getColumnIndex(android.provider.MediaStore.Audio.Media._ID);
-//            do {
-//                long thisId = cursor.getLong(idColumn);
-//                String thisTitle = cursor.getString(titleColumn);
-//                // ...process entry...
-//            } while (cursor.moveToNext());
-//
-//            long id = /* retrieve it from somewhere */;
-//            Uri contentUri = ContentUris.withAppendedId(
-//                    android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
-//
-//            MediaPlayer mediaPlayer = new MediaPlayer();
-//            mediaPlayer.setAudioAttributes(
-//                    new AudioAttributes.Builder()
-//                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-//                            .setUsage(AudioAttributes.USAGE_MEDIA)
-//                            .build()
-//            );
-//            try {
-//                mediaPlayer.setDataSource(getApplicationContext(), contentUri);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
+        //Setting MediaController and URI, then starting the videoView
+        vVideoView.setMediaController(mediaController);
+        vVideoView.setVideoURI(uri);
+        vVideoView.requestFocus();
+        vVideoView.start();
     }
 }

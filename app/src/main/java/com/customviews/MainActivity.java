@@ -27,6 +27,7 @@ import database_demo.DatabaseActivity;
 import media_player.AudioPlayerActivity;
 import media_player.VideoPlayerActivity;
 import my_services.MyServicesActivity;
+import sensor_demo.SensorDemoActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button vService;
     Button vContentProviderDictionary;
     Button vLocation;
-    Button vMediaPlayer;
+    Button vMediaPlayer, vVideoPlayer, vSensor;
     boolean flag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         vService = findViewById(R.id.vService);
         vLocation = findViewById(R.id.vLocation);
         vMediaPlayer = findViewById(R.id.vMediaPlayer);
+        vVideoPlayer = findViewById(R.id.vVideoPlayer);
+        vSensor = findViewById(R.id.vSensor);
     }
     public void registerClick() {
         vActivityLifecycle.setOnClickListener(this);
@@ -64,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         vService.setOnClickListener(this);
         vLocation.setOnClickListener(this);
         vMediaPlayer.setOnClickListener(this);
+        vVideoPlayer.setOnClickListener(this);
+        vSensor.setOnClickListener(this);
     }
 
     @Override
@@ -88,6 +93,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (vMediaPlayer == v) {
             Intent intent = new Intent(MainActivity.this, AudioPlayerActivity.class);
+            startActivity(intent);
+        }  else if (vVideoPlayer == v) {
+            Intent intent = new Intent(MainActivity.this, VideoPlayerActivity.class);
+            startActivity(intent);
+        }  else if (vSensor == v) {
+            Intent intent = new Intent(MainActivity.this, SensorDemoActivity.class);
             startActivity(intent);
         }
     }
