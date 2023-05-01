@@ -30,16 +30,12 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
         uri = Uri.parse("android.resource://"+getPackageName()+"/raw/sample");
 
         mediaPlayer.setAudioAttributes(
-                new AudioAttributes.Builder()
+                new AudioAttributes .Builder()
                         .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                         .setUsage(AudioAttributes.USAGE_MEDIA)
                         .build()
         );
-        try {
-            mediaPlayer.setDataSource(this, uri);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
 
         vPlay.setOnClickListener(this);
         vPause.setOnClickListener(this);
@@ -49,6 +45,8 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         if (vPlay == v) {
             try {
+                mediaPlayer.reset();
+                mediaPlayer.setDataSource(this, uri);
                 if (mediaPlayer.isPlaying()) {
                     return;
                 }
