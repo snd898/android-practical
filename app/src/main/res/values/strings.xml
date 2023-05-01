@@ -3,4 +3,6 @@
     <string name="create_new">Create new</string>
     <string name="open">Open</string>
     <string name="activity_and_lifecycle">Activity And Lifecycle</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
 </resources>

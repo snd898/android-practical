@@ -16,6 +16,13 @@
             android:layout_height="wrap_content"
             android:text="@string/activity_and_lifecycle"/>
         <Button
+            android:id="@+id/vSQLite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="SQLite Database"
+            android:layout_marginTop="10dp"/>
+        <Button
             android:id="@+id/vContentProvider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,6 +49,13 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="Location"
+            android:layout_marginTop="10dp"/>
+        <Button
+            android:id="@+id/vMediaPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Media"
             android:layout_marginTop="10dp"/>
     </LinearLayout>
 

@@ -23,47 +23,56 @@ import com.customviews.activities.ActivityA;
 import activity_and_lifecycle.ActivityAndLifecycle;
 import content_providers.ContentProviderActivity;
 import content_providers.dictionery_demo.DictionaryActivity;
+import database_demo.DatabaseActivity;
+import media_player.AudioPlayerActivity;
+import media_player.VideoPlayerActivity;
 import my_services.MyServicesActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button vActivityLifecycle;
+    Button vSQLite;
     Button vContentProvider;
     Button vService;
     Button vContentProviderDictionary;
     Button vLocation;
+    Button vMediaPlayer;
     boolean flag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        while (flag) {
-//            System.out.println("While is calling");
-//        }
         initViews();
         registerClick();
     }
 
     public void initViews() {
         vActivityLifecycle = findViewById(R.id.vActivityLifecycle);
+        vSQLite = findViewById(R.id.vSQLite);
         vContentProvider = findViewById(R.id.vContentProvider);
         vContentProviderDictionary = findViewById(R.id.vContentProviderDictionary);
         vService = findViewById(R.id.vService);
         vLocation = findViewById(R.id.vLocation);
+        vMediaPlayer = findViewById(R.id.vMediaPlayer);
     }
     public void registerClick() {
         vActivityLifecycle.setOnClickListener(this);
+        vSQLite.setOnClickListener(this);
         vContentProvider.setOnClickListener(this);
         vContentProviderDictionary.setOnClickListener(this);
         vService.setOnClickListener(this);
         vLocation.setOnClickListener(this);
+        vMediaPlayer.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if (vActivityLifecycle == v) {
             Intent intent = new Intent(MainActivity.this, ActivityAndLifecycle.class);
+            startActivity(intent);
+        } else if (vSQLite == v) {
+            Intent intent = new Intent(MainActivity.this, DatabaseActivity.class);
             startActivity(intent);
         } else if (vContentProvider == v) {
             Intent intent = new Intent(MainActivity.this, ContentProviderActivity.class);
@@ -76,6 +85,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (vLocation == v) {
             Intent intent = new Intent(MainActivity.this, MyLocationActivity.class);
+            startActivity(intent);
+        } else if (vMediaPlayer == v) {
+            Intent intent = new Intent(MainActivity.this, AudioPlayerActivity.class);
             startActivity(intent);
         }
     }

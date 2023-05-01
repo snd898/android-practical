@@ -16,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomViews">
         <activity
+            android:name="media_player.AudioPlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name="media_player.VideoPlayerActivity"
+            android:exported="false" />
+        <activity
             android:name=".my_locations.MyLocationActivity"
             android:exported="false" />
         <activity
@@ -44,9 +50,6 @@
             android:exported="false" />
         <activity
             android:name="activity_and_lifecycle.ActivityAndLifecycle"
-            android:exported="true" />
-        <activity
-            android:name=".broadcast_recivers.activities.DemoActivityForBroadcast"
             android:exported="true" />
         <activity
             android:name=".broadcast_recivers.activities.BroadcastReceiverActivity"
